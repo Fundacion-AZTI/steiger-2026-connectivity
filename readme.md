@@ -2,12 +2,14 @@ This repository contains scripts that accompany paper Steiger et al. 2026.
 
 It is organized in three folders for running opendrift simulations, then process data to calculate matrices and then plot the figures. 
 
+This project has received funding from the European Union’s Horizon Europe research and innovation programme under the project BIOcean5D (award number 101059915), and LAMARCA project (PID2021-123352OB-C31, C33) funded by MCIN/AEI/10.13039/501100011033 and by ERDF A way of making Europe.
 
-N. Steiger 20/10/2026
+
+N. Steiger 26/10/2026
 
 ------------------------
 ----- python -----------
-------------------------
+
 
 All scripts are written in python and executed with version 3.13.5. 
 The virtual environment used for running the opendrift simulations and the analysis of the output is provided as environment_opendrift.yml
@@ -15,10 +17,8 @@ The virtual environment used for running the opendrift simulations and the analy
 
 ------------------------
 ---- content -----------
-------------------------
 
 
-........................
 1. SIMULATIONS_OPENDRIFT 
 
 contains scripts to run open drift simulations with regularly seeded particles in the Bay of Biscay as backward simulations over 120 days seeding throughout each month and year from 1993 to 2025: 
@@ -29,32 +29,22 @@ contains scripts to run open drift simulations with regularly seeded particles i
 Acesses Folder for simulation that needs to be specified
 
 
-
-........................
 2. FOLDER FOR SIMULATION SPECIFICATION AND OUTPUT
 
 - config.py: defines parameters specific to the setup used for this simulation (diffusion coefficient, time step etc)
-
 - figures: directory for figures and animations created by OpenDrift
-
 - output: directory to save netcdf output files from OpenDrift
 
 
-
-......................
 3. MODULES
 
 contains scripts with functions related to seeding, simulation and visualization. 
 
 
 
-
-.........................
 4. ANALYSIS_PROCESSING
 
-
 contains scripts to post-process data and calculate metrices used for plotting
-
 
 - reduce_outfile.py: remove data that were saved but not needed to reduce file size; also add variable area, which is from 1-9 the name of the area where the trajectory is currently located
 
@@ -67,20 +57,17 @@ Calculates Origin diversity index based on number of origins at each lon lat gri
 Input: netcdf from reduced data. 
 Output: mixing_{age}_{yr}.nc
 
-
 - analyse_connectivity_matrix.py: 
 Calculates connectivity matrix monthly, yearly means and climatology, as well as trend, and detrended. 
 Input: netcdf from origin - Lon_Lat_origin_{yr}_year.nc. 
 Output: Connectivity_matrix_{age}days_coast_previous_seeding5days.pkl and csv. Also other files of clim, mean, trend,pval etc
 
 
-................................
 5. PLOTTING
 
 contains scripts to plot all the figures contained in the paper. 
 
 
-.................................
 6. WEBAPP 
 
 contains scripts to plot figures in the webapp that accompanies the paper. 
